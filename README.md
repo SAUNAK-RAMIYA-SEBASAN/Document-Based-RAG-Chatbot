@@ -1,4 +1,4 @@
-##### Document-Based RAG Chatbot
+#### Document-Based RAG Chatbot
 
 ## 1. Introduction
 
@@ -36,9 +36,9 @@ This project implements a **Document-Based Retrieval-Augmented Generation (RAG) 
 
 Before starting, ensure you have the following installed on your Windows system:
 
-**Python:** 3.12.x - Download from python.org  
-**Docker Desktop:** Latest - Download from docker.com  
-**Git:** Latest - Download from git-scm.com  
+**Python:** 3.12.x - Download from https://www.python.org/  
+**Docker Desktop:** Latest - Download from https://www.docker.com/  
+**Git:** Latest - Download from https://git-scm.com/  
 **UV Package Manager:** Latest - See installation below  
 
 ### 2.2 UV Package Manager Installation
@@ -276,6 +276,7 @@ Each response includes:
 - **Fast inference**: 2-4 second response times
 - **Reliable fallback**: Works with extractive backup system
 
+  **Alternative considered:** phi2, mistral,... but rejected for hallucinations and also the processing time was a lilttle high
 
 #### E5-Small-V2 for Embeddings
 **Why chosen:**
@@ -295,7 +296,6 @@ Each response includes:
 - **Scalability**: Handles large document collections
 - **Persistent storage**: Data survives container restarts
 
-**Alternative considered:** FAISS rejected for lack of metadata support
 
 ### 4.2 System Architecture Choices
 
@@ -713,7 +713,8 @@ This approach ensures that our Document-Based RAG Chatbot delivers accurate, wel
 - **Average Query Response**: 2-3 seconds end-to-end
 - **Maximum Response Time**: Under 15 seconds (hackathon compliance)
 - **Typical Response Time**: Under 3 seconds for standard queries
-- **Peak Performance**: Sub-2 second responses for cached embeddings
+- **Peak Performance**: Sub-1 second responses for cached embeddings
+- **First Response Time**: Sub-15 seconds because of loading models subsequent responses will be under 3 seconds
 
 **Detailed Timing Breakdown:**
 ```
